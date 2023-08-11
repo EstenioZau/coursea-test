@@ -1,15 +1,48 @@
-/* Estilos para o corpo (body) */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
+/* Common styles for the gradient box and its pseudo-elements */
+.gradient-box {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transition: transform 0.3s;
 }
 
-/* Estilos para o título (h1) */
-h1 {
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 10px;
+.gradient-box::before,
+.gradient-box::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: inherit;
+}
+
+/* Main gradient for the box */
+.gradient-box {
+    background: linear-gradient(45deg, #ff9999, #ffcc99);
+}
+
+/* Pseudo-elements for the side gradients */
+.gradient-box::before {
+    background: linear-gradient(45deg, #ffcc99, #ff9999);
+    top: 10px;
+    left: 10px;
+}
+
+.gradient-box::after {
+    background: linear-gradient(45deg, #ffcc99, #ff9999);
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Hover effect to create a dynamic 3D effect */
+.gradient-box:hover {
+    transform: translate(5px, 5px);
+}
+
+.gradient-box:hover::before {
+    transform: translate(-5px, -5px);
+}
+
+.gradient-box:hover::after {
+    transform: translate(-5px, -5px);
 }
